@@ -6,8 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2B56D80C2ECF9193006FD74F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2B56D80B2ECF9193006FD74F /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		2B6C50612ECE0366003D94F3 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ToDoList.app; path = "/Users/administration/Desktop/icodePro/ToDoList/build/Debug-iphoneos/ToDoList.app"; sourceTree = "<absolute>"; };
+		2B56D7E42ECF90ED006FD74F /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B56D80C2ECF9193006FD74F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6C504A2ECC936E003D94F3 /* ToDoList */,
+				2B56D7E42ECF90ED006FD74F /* ToDoList.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,9 +75,10 @@
 			);
 			name = ToDoList;
 			packageProductDependencies = (
+				2B56D80B2ECF9193006FD74F /* SnapKit */,
 			);
 			productName = ToDoList;
-			productReference = 2B6C50612ECE0366003D94F3 /* ToDoList.app */;
+			productReference = 2B56D7E42ECF90ED006FD74F /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,6 +105,9 @@
 			);
 			mainGroup = 2B6C503F2ECC936E003D94F3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2B56D80A2ECF9193006FD74F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2B6C503F2ECC936E003D94F3;
 			projectDirPath = "";
@@ -338,6 +348,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B56D80A2ECF9193006FD74F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B56D80B2ECF9193006FD74F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B56D80A2ECF9193006FD74F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B6C50402ECC936E003D94F3 /* Project object */;
 }
