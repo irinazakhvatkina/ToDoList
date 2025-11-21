@@ -7,4 +7,7 @@ enum Icons {
     static let edit = UIImage(named: "edit")
     static let trash = UIImage(named: "trash")
     static let export = UIImage(named: "export")
+    static let search = UIImage(named: "search")
+    static let mic = UIImage(named: "mic")
+
 }
