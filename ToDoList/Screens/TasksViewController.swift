@@ -57,6 +57,32 @@ class TasksViewController: UIViewController {
         return tv
     }()
     
+    // MARK: - Bottom Toolbar
+
+    private let bottomBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.gray
+        return view
+    }()
+
+    private let totalTasksLabel: UILabel = {
+        let label = UILabel()
+        label.text = "10 задач"
+        label.textColor = .white
+        label.font = AppFonts.body(16)
+        label.textAlignment = .center
+        return label
+    }()
+
+    private let addButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "addIcon"), for: .normal)
+        button.tintColor = AppColors.yellow
+        button.addTarget(nil, action: #selector(addTaskTapped), for: .touchUpInside)
+        return button
+    }()
+
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -73,6 +99,9 @@ class TasksViewController: UIViewController {
         view.addSubview(screenTitle)
         view.addSubview(searchBar)
         view.addSubview(tableView)
+        view.addSubview(bottomBar)
+        bottomBar.addSubview(totalTasksLabel)
+        bottomBar.addSubview(addButton)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -97,6 +126,23 @@ class TasksViewController: UIViewController {
             $0.top.equalTo(searchBar.snp.bottom).offset(20)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+        
+        bottomBar.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(80)
+        }
+        
+        totalTasksLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+
+        addButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
+            $0.width.equalTo(70)
+            $0.height.equalTo(65)
+
+        }
     }
     
     // MARK: - Keyboard Dismiss
@@ -111,6 +157,9 @@ class TasksViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @objc private func addTaskTapped() {
+        print("Нажата кнопка добавления задачи")
+    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -118,7 +167,7 @@ class TasksViewController: UIViewController {
 extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,7 +175,7 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "Задача \(indexPath.row + 1)"
         cell.backgroundColor = AppColors.black
-        cell.textLabel?.textColor = .white
+        cell.textLabel?.textColor = AppColors.white
         return cell
     }
     
